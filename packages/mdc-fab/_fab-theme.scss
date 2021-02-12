@@ -65,7 +65,6 @@ $_light-theme: (
 );
 
 @mixin theme($theme) {
-  @include theme.validate-keys($_light-theme, $theme);
   @include container-color(map.get($theme, container-color));
   @include _container-elevation(
     (
@@ -158,12 +157,6 @@ $_light-theme: (
   $feat-color: feature-targeting.create-target($query, color);
 
   @include feature-targeting.targets($feat-color) {
-    @include theme.property(color, $color);
-  }
-}
-
-@mixin _label-color($color) {
-  .mdc-fab__label {
     @include theme.property(color, $color);
   }
 }
